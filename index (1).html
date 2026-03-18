@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Texarkana Student Job Guide 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d1b2a;
+    --gold: #f4a228;
+    --gold-light: #ffd47a;
+    --teal: #1e8c8c;
+    --cream: #faf7f2;
+    --red: #c0392b;
+    --green: #1a7a4a;
+    --card-bg: #ffffff;
+    --border: #e0dbd0;
+    --text: #1a1a1a;
+    --muted: #5a6070;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* HEADER */
+  header {
+    background: var(--navy);
+    color: white;
+    padding: 2.5rem 2rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    top: -40px; left: -40px;
+    width: 180px; height: 180px;
+    background: var(--gold);
+    border-radius: 50%;
+    opacity: 0.12;
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; right: -30px;
+    width: 220px; height: 220px;
+    background: var(--teal);
+    border-radius: 50%;
+    opacity: 0.12;
+  }
+  .header-tag {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.85rem;
+    border-radius: 2px;
+    margin-bottom: 1rem;
+  }
+  header h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    letter-spacing: 0.04em;
+    line-height: 1.05;
+    margin-bottom: 0.6rem;
+  }
+  header h1 span { color: var(--gold); }
+  header p {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.75);
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  /* AGE LAW BOX */
+  .law-bar {
+    background: var(--teal);
+    color: white;
+    padding: 0.9rem 2rem;
+    text-align: center;
+    font-size: 0.88rem;
+    font-weight: 500;
+  }
+  .law-bar strong { color: var(--gold-light); }
+
+  /* MAIN CONTENT */
+  main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2.5rem 1.25rem 4rem;
+  }
+
+  /* AGE SECTION */
+  .age-section {
+    margin-bottom: 3rem;
+  }
+
+  .age-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 3px solid var(--gold);
+  }
+  .age-badge {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.2rem;
+    background: var(--navy);
+    color: white;
+    padding: 0.2rem 0.9rem 0.3rem;
+    border-radius: 4px;
+    line-height: 1;
+    white-space: nowrap;
+  }
+  .age-badge.green { background: var(--green); }
+  .age-badge.red { background: var(--red); }
+  .age-header-text h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.7rem;
+    letter-spacing: 0.05em;
+    color: var(--navy);
+    line-height: 1.1;
+  }
+  .age-header-text p {
+    font-size: 0.83rem;
+    color: var(--muted);
+    margin-top: 0.15rem;
+  }
+
+  /* CATEGORY */
+  .category {
+    margin-bottom: 1.75rem;
+  }
+  .category-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.15rem;
+    letter-spacing: 0.1em;
+    color: var(--teal);
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .category-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* JOB CARDS */
+  .job-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 0.85rem;
+  }
+
+  .job-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    transition: box-shadow 0.18s ease, transform 0.18s ease;
+    border-left: 4px solid var(--gold);
+  }
+  .job-card:hover {
+    box-shadow: 0 4px 18px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+  }
+  .job-card.green-accent { border-left-color: var(--green); }
+  .job-card.red-accent { border-left-color: var(--red); }
+  .job-card.teal-accent { border-left-color: var(--teal); }
+
+  .job-name {
+    font-weight: 700;
+    font-size: 0.98rem;
+    color: var(--navy);
+  }
+  .job-role {
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+  .job-note {
+    font-size: 0.78rem;
+    color: var(--green);
+    font-weight: 600;
+  }
+  .job-note.warn { color: var(--red); }
+
+  .apply-btn {
+    display: inline-block;
+    margin-top: 0.5rem;
+    background: var(--navy);
+    color: white;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    padding: 0.38rem 0.85rem;
+    border-radius: 4px;
+    align-self: flex-start;
+    transition: background 0.15s;
+  }
+  .apply-btn:hover { background: var(--teal); }
+
+  /* TIPS BOX */
+  .tips-box {
+    background: var(--navy);
+    color: white;
+    border-radius: 10px;
+    padding: 1.75rem 2rem;
+    margin-top: 2.5rem;
+  }
+  .tips-box h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.06em;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+  .tips-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 0.65rem;
+  }
+  .tips-list li {
+    font-size: 0.87rem;
+    padding-left: 1.2rem;
+    position: relative;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.45;
+  }
+  .tips-list li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--muted);
+    padding: 1.5rem;
+    border-top: 1px solid var(--border);
+  }
+
+  @media (max-width: 520px) {
+    .age-badge { font-size: 1.6rem; }
+    .job-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-tag">🎓 Job Fair Resource — Texarkana, TX & AR</div>
+  <h1>Your First <span>Job Starts</span> Here</h1>
+  <p>Online application links for local employers hiring high school students — organized by age group.</p>
+</header>
+
+<div class="law-bar">
+  📋 <strong>Texas & Arkansas law:</strong> Minimum working age is <strong>14</strong>. Workers 14–15 have hour restrictions during the school year. At <strong>16+</strong>, hour restrictions are lifted. Always have a parent/guardian available when applying if you're under 18.
+</div>
+
+<main>
+
+  <!-- ===================== AGES 14-15 ===================== -->
+  <section class="age-section">
+    <div class="age-header">
+      <div class="age-badge green">Ages 14–15</div>
+      <div class="age-header-text">
+        <h2>Getting Started — Entry-Level Opportunities</h2>
+        <p>School-year limits: max 3 hrs/day, 18 hrs/week. No work before 7 AM or after 7 PM (9 PM in summer).</p>
+      </div>
+    </div>
+
+    <div class="category">
+      <div class="category-title">🍔 Fast Food & Restaurants</div>
+      <div class="job-grid">
+        <div class="job-card green-accent">
+          <div class="job-name">McDonald's</div>
+          <div class="job-role">Crew Member — Cashier, Food Prep</div>
+          <div class="job-note">✅ Hires at 14 at many locations</div>
+          <a class="apply-btn" href="https://www.mcdonalds.com/us/en-us/careers.html" target="_blank" rel="noopener noreferrer">Apply Online →</a>
+        </div>
+        <div class="job-card green-accent">
+          <div class="job-name">Chick-fil-A</div>
+          <div class="job-role">Team Member — Front Counter, Drive-Thru</div>
+          <div class="job-note">✅ Hires at 14–15 (location-dependent)</div>
+          <a class="apply-btn" href="https://www.chick-fil-a.com/careers" target="_blank" rel="noopener noreferrer">Apply Online →</a>
+        </div>
+        <div class="job-card green-accent">
+          <div class="job-name">Sonic Drive-In</div>
+          <div class="job-role">Carhop, Crew Member</div>
+          <div class="job-note">✅ Some locations hire at 14–15</div>
+          <a class="apply-btn" href="https://www.sonicdrivein.com/careers" target="_blank" rel="noopener noreferrer">Apply Online →</a>
+        </div>
+        <div class="job-card green-accent">
+          <div class="job-name">Waffle House</div>
+          <div class="job-role">Server / Grill Operator</div>
+          <div class="job-note">✅ Hires at 16 — plan ahead!</div>
+          <a class="apply-btn" href="https://www.wafflehouse.com/employment/" target="_blank" rel="noopener noreferrer">Apply Online →</a>
+        </div>
+        <div class="job-card green-accent">
+          <div class="job-name">Dairy Queen</div>
+          <div class="job-role">Team Member — Service & Prep</div>
+          <div class="job-note">✅ Many locations hire at 14–15</div>
+          <a class="apply-btn" href="https://www.dairyqueen.com/us-en/careers/" target="_blank" rel="noopener noreferrer">Apply Online →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="category">
+      <div class="category-title">🛒 Grocery & Retail</div>
+      <div class="job-grid">
+        <div class="job-card teal-accent">
+          <div class="job-name">Brookshire's Grocery</div>
+          <div class="job-role">Cashier, Bagger, Stocker</div>
+          <div class="job-note">✅ Texarkana-filtered application search</div>
+          <a class="apply-btn" href="https://brookshires.wd108.myworkdayjobs.com/BGC?q=texarkana" target="_blank" rel="noopener noreferrer">Apply Online →</a>
+        </div>
+        <div class="job-card teal-accent">
+          <div class="job-name">Walmart</div>
+          <div class="job-role">Cart Associate, Stocker</div>
+          <div class="job-note">✅ Minimum age 16 — great first job</div>
+          <a class="apply-btn" href="https://careers.walmart.com/" target="_blank" rel="noopener noreferrer">Apply Online →</a>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ===================== AGES 16-17 ===================== -->
+  <section class="age-section">
+    <div class="age-header">
+      <div class="age-badge">Ages 16–17</div>
+      <div class="age-header-text">
+        <h2>More Opportunities Open Up</h2>
+        <p>No hour restrictions under Texas or federal law. More employers, more roles, flexible scheduling around school.</p>
+      </div>
+    </div>
+
+    <div class="category">
+      <div class="category-title">🍔 Fast Food</div>
+      <div class="job-grid">
+        <div class="job-card">
+          <div class="job-name">McDonald's</div>
+          <div class="job-role">Crew Member, Shift Lead (with experience)</div>
+          <a class="apply-btn" href="https://www.mcdonalds.com/us/en-us/careers.html" target="_blank" rel="noopener noreferrer">Apply Online →</a>
+        </div>
+        <div class="job-card">
+          <div class="job-name">Chick-fil-A</div>
+          <div class="job-role">Team Member — all positions</div>
+          <a class="apply-btn" href="https://www.chick-fil-a.com/careers" target="_blank" rel="noopener noreferrer">Apply Online →</a>
+        </div>
+        <div class="job-card">
+          <div class="job-name">Raising Cane's</div>
+          <div class="job-role">Crew Member (currently hiring Texarkana)</div>
+          <div class="job-note">✅ Actively hiring locally</div>
+          <a class="apply-btn" href="https://raisingcanes.com/careers/" target="_blank" rel="noopener noreferrer">Apply Online →</a>
+        </div>
+        <div class="job-card">
+          <div class="job-name">Taco Bueno</div>
+          <div class="job-role">Team Member</div>
+          <a class="apply-btn" href="https://www.tacobueno.com/careers" target="_blank" rel="noopener noreferrer">Apply Online →</a>
+        </div>
+        <div class="job-card">
+          <div class="job-name">Wendy's</div>
+          <div class="job-role">Crew Member</div>
+          <a class="apply-btn" href="https://www.wendys.com/careers" target="_blank" rel="noopener noreferrer">Apply Online →</a>
+        </div>
+        <div class="job-card">
+          <div class="job-name">Long John Silver's</div>
+          <div class="job-role">Team Member (AR side)</div>
+          <a class="apply-btn" href="https://www.ljsilvers.com/careers/" target="_blank" rel="noopener noreferrer">Apply Online →</a>
+        </div>
+        <div class="job-card">
+          <div class="job-name">Little Caesars</div>
+          <div class="job-role">Crew Member (min. age 17)</div>
+          <div class="job-note warn">⚠️ Requires age 17+</div>
+          <a class="apply-btn" href="https://littlecaesars.com/en-us/careers/" target="_blank" rel="noopener noreferrer">Apply Online →</a>
+        </div>
+        <div class="job-card">
+          <div class="job-name">Chipotle</div>
+          <div class="job-role">Crew Member — Kitchen & Line</div>
+          <a class="apply-btn" href="https://jobs.chipotle.com/" target="_blank" rel="noopener noreferrer">Apply Online →</a>
+        </div>
+        <div class="job-card">
+          <div class="job-name">Sonic Drive-In</div>
+          <div class="job-role">Carhop, Crew — more hrs available</div>
+          <a class="apply-btn" href="https://www.sonicdrivein.com/careers" target="_blank" rel="noopener noreferrer">Apply Online →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="category">
+      <div class="category-title">🍽️ Restaurant Servers & Casual Dining</div>
+      <div class="job-grid">
+        <div class="job-card teal-accent">
+          <div class="job-name">Golden Corral</div>
+          <div class="job-role">Server, Host, Prep — family dining</div>
+          <a class="apply-btn" href="https://goldencorral.com/careers/" target="_blank" rel="noopener noreferrer">Apply Online →</a>
+        </div>
+        <div class="job-card teal-accent">
+          <div class="job-name">Waffle House</div>
+          <div class="job-role">Server / Grill Operator</div>
+          <a class="apply-btn" href="https://www.wafflehouse.com/employment/" target="_blank" rel="noopener noreferrer">Apply Online →</a>
+        </div>
+        <div class="job-card teal-accent">
+          <div class="job-name">IHOP / Applebee's</div>
+          <div class="job-role">Host, Server (16+ with food handler card)</div>
+          <a class="apply-btn" href="https://careers.dinebrands.com/" target="_blank" rel="noopener noreferrer">Apply Online →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="category">
+      <div class="category-title">🛒 Grocery & General Retail</div>
+      <div class="job-grid">
+        <div class="job-card teal-accent">
+          <div class="job-name">Brookshire's Grocery</div>
+          <div class="job-role">Cashier, Stocker, Deli, Bakery</div>
+          <div class="job-note">✅ Texarkana-filtered application search</div>
+          <a class="apply-btn" href="https://brookshires.wd108.myworkdayjobs.com/BGC?q=texarkana" target="_blank" rel="noopener noreferrer">Apply Online →</a>
+        </div>
+        <div class="job-card teal-accent">
+          <div class="job-name">Walmart / Sam's Club</div>
+          <div class="job-role">Cart Associate, Cashier, Stocker</div>
+          <a class="apply-btn" href="https://careers.walmart.com/" target="_blank" rel="noopener noreferrer">Apply Online →</a>
+        </div>
+        <div class="job-card teal-accent">
+          <div class="job-name">Five Below</div>
+          <div class="job-role">Sales Associate</div>
+          <a class="apply-btn" href="https://www.fivebelow.com/pages/careers" target="_blank" rel="noopener noreferrer">Apply Online →</a>
+        </div>
+        <div class="job-card teal-accent">
+          <div class="job-name">Shoe Carnival</div>
+          <div class="job-role">Store Associate (Part-Time)</div>
+          <a class="apply-btn" href="https://www.shoecarnival.com/careers/" target="_blank" rel="noopener noreferrer">Apply Online →</a>
+        </div>
+        <div class="job-card teal-accent">
+          <div class="job-name">American Eagle Outfitters</div>
+          <div class="job-role">Brand Ambassador / Sales</div>
+          <a class="apply-btn" href="https://www.ae.com/us/en/c/careers" target="_blank" rel="noopener noreferrer">Apply Online →</a>
+        </div>
+        <div class="job-card teal-accent">
+          <div class="job-name">Journeys</div>
+          <div class="job-role">Part-Time Sales Associate</div>
+          <a class="apply-btn" href="https://www.journeys.com/about/careers" target="_blank" rel="noopener noreferrer">Apply Online →</a>
+        </div>
+        <div class="job-card teal-accent">
+          <div class="job-name">Hot Topic / BoxLunch</div>
+          <div class="job-role">Sales Associate</div>
+          <a class="apply-btn" href="https://www.hottopic.com/careers.html" target="_blank" rel="noopener noreferrer">Apply Online →</a>
+        </div>
+        <div class="job-card teal-accent">
+          <div class="job-name">Walgreens</div>
+          <div class="job-role">Cashier / Pharmacy Cashier</div>
+          <a class="apply-btn" href="https://jobs.walgreens.com/" target="_blank" rel="noopener noreferrer">Apply Online →</a>
+        </div>
+        <div class="job-card teal-accent">
+          <div class="job-name">CVS Pharmacy</div>
+          <div class="job-role">Cashier (AR locations hiring)</div>
+          <a class="apply-btn" href="https://jobs.cvshealth.com/" target="_blank" rel="noopener noreferrer">Apply Online →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="category">
+      <div class="category-title">🚗 Car Washes</div>
+      <div class="job-grid">
+        <div class="job-card red-accent">
+          <div class="job-name">Tidal Wave Auto Spa</div>
+          <div class="job-role">Car Wash Attendant (currently hiring Texarkana)</div>
+          <div class="job-note">✅ Direct Texarkana job posting</div>
+          <a class="apply-btn" href="https://tidalwaveautospa.wd1.myworkdayjobs.com/en-US/TWAS/details/Car-Wash-Attendant---Texarkana--TX_R9524?q=texarkana" target="_blank" rel="noopener noreferrer">Apply Online →</a>
+        </div>
+        <div class="job-card red-accent">
+          <div class="job-name">Local / Independent Car Washes</div>
+          <div class="job-role">Detailer, Attendant — ask in person</div>
+          <div class="job-note">💡 Walk-in and ask for the manager!</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="category">
+      <div class="category-title">🎬 Entertainment & Other</div>
+      <div class="job-grid">
+        <div class="job-card">
+          <div class="job-name">Cinemark (Central Mall)</div>
+          <div class="job-role">Theatre Team Member — Concessions, Usher</div>
+          <div class="job-note">✅ Actively hiring — min. age 16</div>
+          <a class="apply-btn" href="https://cinemark.com/careers" target="_blank" rel="noopener noreferrer">Apply Online →</a>
+        </div>
+        <div class="job-card">
+          <div class="job-name">QuikTrip</div>
+          <div class="job-role">Store Clerk — Convenience & Fuel</div>
+          <a class="apply-btn" href="https://www.quiktrip.com/Careers" target="_blank" rel="noopener noreferrer">Apply Online →</a>
+        </div>
+        <div class="job-card">
+          <div class="job-name">Delek / MAPCO</div>
+          <div class="job-role">Cashier / Retail Associate (AR)</div>
+          <a class="apply-btn" href="https://www.delekus.com/careers" target="_blank" rel="noopener noreferrer">Apply Online →</a>
+        </div>
+        <div class="job-card">
+          <div class="job-name">PetSmart</div>
+          <div class="job-role">Pet Care Associate, Grooming Assistant</div>
+          <a class="apply-btn" href="https://careers.petsmart.com/" target="_blank" rel="noopener noreferrer">Apply Online →</a>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ===================== AGES 18+ ===================== -->
+  <section class="age-section">
+    <div class="age-header">
+      <div class="age-badge red">Ages 18+</div>
+      <div class="age-header-text">
+        <h2>Full Adult Workforce Access</h2>
+        <p>All previous options plus roles that require adult status — serving alcohol, driving, security, and more.</p>
+      </div>
+    </div>
+
+    <div class="category">
+      <div class="category-title">🍺 Serving / Bartending (Requires 18+)</div>
+      <div class="job-grid">
+        <div class="job-card red-accent">
+          <div class="job-name">Chili's / Applebee's / TGI Fridays</div>
+          <div class="job-role">Server, Host, Bartender</div>
+          <a class="apply-btn" href="https://careers.dinebrands.com/" target="_blank" rel="noopener noreferrer">Apply Online →</a>
+        </div>
+        <div class="job-card red-accent">
+          <div class="job-name">Texas Roadhouse</div>
+          <div class="job-role">Server, Host, Line Cook</div>
+          <a class="apply-btn" href="https://www.texasroadhouse.com/careers" target="_blank" rel="noopener noreferrer">Apply Online →</a>
+        </div>
+        <div class="job-card red-accent">
+          <div class="job-name">Outback Steakhouse</div>
+          <div class="job-role">Server, Busser, Cook</div>
+          <a class="apply-btn" href="https://jobs.bloominbrands.com/" target="_blank" rel="noopener noreferrer">Apply Online →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="category">
+      <div class="category-title">🏪 Additional Retail & Warehouse (18+)</div>
+      <div class="job-grid">
+        <div class="job-card">
+          <div class="job-name">Target</div>
+          <div class="job-role">Team Member, Fulfillment</div>
+          <a class="apply-btn" href="https://jobs.target.com/" target="_blank" rel="noopener noreferrer">Apply Online →</a>
+        </div>
+        <div class="job-card">
+          <div class="job-name">Dollar General / Dollar Tree</div>
+          <div class="job-role">Sales Associate, Stocker</div>
+          <a class="apply-btn" href="https://careers.dollargeneral.com/" target="_blank" rel="noopener noreferrer">Apply Online →</a>
+        </div>
+        <div class="job-card">
+          <div class="job-name">Lowe's / Home Depot</div>
+          <div class="job-role">Associate, Loader, Cashier</div>
+          <a class="apply-btn" href="https://careers.lowes.com/" target="_blank" rel="noopener noreferrer">Apply Online →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="category">
+      <div class="category-title">🔍 General Job Search Sites (All Ages)</div>
+      <div class="job-grid">
+        <div class="job-card">
+          <div class="job-name">Indeed — Texarkana Teen Jobs</div>
+          <div class="job-role">Aggregates all local openings — filter by age</div>
+          <a class="apply-btn" href="https://www.indeed.com/q-teen-l-Texarkana,-TX-jobs.html" target="_blank" rel="noopener noreferrer">Search Now →</a>
+        </div>
+        <div class="job-card">
+          <div class="job-name">Glassdoor — Texarkana Teens</div>
+          <div class="job-role">90+ teen-friendly jobs listed</div>
+          <a class="apply-btn" href="https://www.glassdoor.com/Job/texarkana-teen-jobs-SRCH_IL.0,9_IC1140553_KO10,14.htm" target="_blank" rel="noopener noreferrer">Search Now →</a>
+        </div>
+        <div class="job-card">
+          <div class="job-name">ZipRecruiter — Texarkana</div>
+          <div class="job-role">Filter by minimum age and part-time</div>
+          <a class="apply-btn" href="https://www.ziprecruiter.com/Jobs/16-Year-Old/-in-Texarkana,TX" target="_blank" rel="noopener noreferrer">Search Now →</a>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- TIPS BOX -->
+  <div class="tips-box">
+    <h3>💡 Tips for Applying</h3>
+    <ul class="tips-list">
+      <li>Apply online before showing up in person — most employers prefer it.</li>
+      <li>If you're 14–15, Texas requires a <strong>Certificate of Age</strong> from the Texas Workforce Commission.</li>
+      <li>Arkansas teens 14–15 may need parental consent forms — check with each employer.</li>
+      <li>Bring a parent/guardian's contact info — many teen applications ask for it.</li>
+      <li>Availability matters! Tell them you can work after 3 PM on school days and weekends.</li>
+      <li>Don't just apply online — follow up with a call or visit the next day.</li>
+      <li>Dress neat when you drop off applications or go for an interview — first impressions count!</li>
+      <li>Chick-fil-A offers scholarships to Team Members — it's more than just a paycheck.</li>
+    </ul>
+  </div>
+
+</main>
+
+<footer>
+  Compiled for the Texarkana High School Job Fair · March 2026 · Updated with fixed local links · Links have been updated with better local/direct application pages where available — job availability may change.
+</footer>
+
+</body>
+</html>
